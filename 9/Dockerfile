@@ -36,8 +36,14 @@ RUN apk add --no-cache git vim rsync openssh curl
 # Clean up.
 RUN apk del .build-deps
 
+# PM2
+RUN npm install pm2 -g
+
 # Switch to your project folder.
 WORKDIR /web/application
+
+# Expose ports
+EXPOSE 80 443 43554
 
 # Start application using Supervisord.
 CMD ["/usr/bin/supervisord", "-c", "/web/configs/supervisord.conf"]
