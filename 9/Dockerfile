@@ -31,7 +31,7 @@ COPY configs/supervisord.conf /web/configs/
 RUN apk add --no-cache --virtual .build-deps build-base autoconf
 
 # Supervisor providers extensibility, Cron lets you do task scheduling.
-RUN apk add --no-cache git vim rsync openssh curl
+RUN apk add --no-cache git vim rsync openssh curl drill
 
 # Clean up.
 RUN apk del .build-deps
